@@ -11,13 +11,13 @@ async def hi(ctx):
     await ctx.channel.send('hello!')
 
 @client.event
-async def on_message(ctx):
-    if ctx.author == client.user:
+async def on_message(msg):
+    if msg.author == client.user:
         return
-    if ctx.content == '& greeting':
-        await ctx.channel.send('How are you today? :)')
+    if msg.content == '& greeting':
+        await msg.channel.send('How are you today? :)')
     #Put your commands here
-    await client.process_commands(ctx)
+    await client.process_commands(msg)
 
 @client.event
 async def on_ready():
